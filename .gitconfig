@@ -1,0 +1,29 @@
+
+[commit]
+	gpgsign = true
+	verbose = true
+[user]
+	email = daniel.yang.hansen@gmail.com
+	name = Daniel Yang Hansen
+
+[core]
+	pager = delta
+	editor = nvim
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	features = line-numbers decorations
+	whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+
+[diff "ansible-vault"]
+	textconv = ansible-vault view
+
+[pull]
+	ff = only

@@ -27,6 +27,7 @@ mkdir -p "$DOTFILES/.local/completions"
 # Source zshenv config from home folder
 echo "source $DOTFILES/zshenv" >"${ZDOTDIR:-$HOME}/.zshenv"
 
+#Install plugins.
 chmod +x "$DOTFILES/install/zsh_plugins.sh"
 "$DOTFILES/install/zsh_plugins.sh"
 

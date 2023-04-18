@@ -5,7 +5,11 @@ else
   echo "tmux not installed on this system"
 fi
 
-
+# ---------------------------------------------------------
+# Environment
+# ---------------------------------------------------------
+source $DOTFILES/.env
+source $DOTFILES/.local/zshrc-template
 # ---------------------------------------------------------
 # Plugins
 # ---------------------------------------------------------
@@ -100,3 +104,4 @@ source $DOTFILES/aliases.zsh
 # Functions
 # ---------------------------------------------------------
 source $DOTFILES/functions.zsh
+

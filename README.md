@@ -18,6 +18,7 @@ chmod +x install.sh
 ./install.sh
 ```
 
+
 To Install everything automatically, run the install utility with `-a`:
 
 ```sh

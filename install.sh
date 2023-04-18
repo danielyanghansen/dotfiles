@@ -1,3 +1,4 @@
+# Set dotfiles directory
 DOTFILES="$(pwd)"
 
 # Create a directory for local files
@@ -10,7 +11,6 @@ fi
 echo "export DOTFILES=$DOTFILES" >"$DOTFILES/.local/constants"
 # shellcheck source=.local/constants
 source "$DOTFILES/.local/constants"
-
 
 # Declare a table of install scripts
 declare -A install_scripts=(
@@ -25,7 +25,6 @@ declare -A install_scripts=(
 declare -A install_scripts_opts=(
   ["cli-tools"]="-a"
 )
-
 
 # Run provided install scripts
 if [[ -n $1 && -n "${install_scripts["$1"]}" ]]; then

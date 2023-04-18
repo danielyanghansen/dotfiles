@@ -7,6 +7,13 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
+Plugins should all end up in `~/.local/share`
+
+### CoC Conquerors of Completion
+To get started, navigate to `~/.local/share/nvim/plugged/coc.nvim` and run `yarn` or `yarn install` 
+
+## Dependencies
+`exuberant-ctags`
 
 # LSD
 https://github.com/lsd-rs/lsd

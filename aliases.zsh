@@ -41,5 +41,4 @@ alias dotinstall="bash $DOTFILES/install.sh"
 
 #Other
 alias bat="batcat"
-alias ls="lsd"
 alias lsa="lsd -la"

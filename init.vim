@@ -7,6 +7,8 @@
 :set softtabstop=4              " See multiple spaces as tabstops
 :set mouse=a                    " Enable mouse
 :set hlsearch                   " Highlight search
+:set ttyfast					" Speed up scrolling
+
 
 " Plugins, using vim-plug. Install with :PlugInstall and update with :PlugUpdate
 " All plugins should be in $HOME/.local/share/nvim/plugged

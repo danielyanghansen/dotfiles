@@ -31,6 +31,9 @@ alias o=xdg-open
 alias av="ansible-vault"
 alias ap="ansible-playbook"
 
+# Docker
+alias ds='docker ps --format '\''table {{.ID}}\t{{.Names}}\t{{.Status}}'\'''
+
 # Sudo vim
 alias svim="sudoedit"
 
@@ -42,3 +45,10 @@ alias vimconfig="nvim $DOTFILES/init.vim && cp $DOTFILES/init.vim $HOME/.config/
 #Other
 alias bat="batcat"
 alias lsa="lsd -la"
+alias dotfiles="cd $DOTFILES"
+
+#Webkom
+alias webkom="cd $WEBKOMCODE"
+alias legostart="cd $WEBKOMCODE/lego && docker-compose up -d && source venv/bin/activate && python manage.py runserver"
+alias legomigrate="cd $WEBKOMCODE/lego && source venv/bin/activate && python manage.py migrate"
+

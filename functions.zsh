@@ -70,3 +70,26 @@ ghc() {
     gh pr checkout "$pr_number"
   fi
 }
+
+# FZF search for ssh
+
+s() {
+  if [ $# -eq 1 ]; then
+    # If an argument is provided, use it as the host and SSH to it
+    ssh "$1"
+  else
+    local selected_host
+
+    # Use fzf to interactively select a host from your .ssh/config
+    selected_host=$(grep -E '^Host ' ~/.ssh/config | awk '{print $2}' | fzf)
+
+    # Check if a host was selected
+    if [ -n "$selected_host" ]; then
+      # SSH to the selected host
+      ssh "$selected_host"
+    else
+      echo "No host selected."
+    fi
+  fi
+}
+

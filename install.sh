@@ -17,7 +17,7 @@ declare -A install_scripts=(
   ["zsh"]="$DOTFILES/install/zsh.sh"
   ["zsh-update"]="$DOTFILES/install/zsh_update.sh"
   ["vim"]="$DOTFILES/install/vim.sh"
-  ["tmux"]="$DOTFILES/install/tmux.sh"
+#  ["tmux"]="$DOTFILES/install/tmux.sh"
   ["cli-tools"]="$DOTFILES/install/cli-tools.sh"
 )
 

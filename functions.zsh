@@ -1,7 +1,7 @@
 # dots
 # Run the dotfiles script from anywhere
 dots() {
-  cd "$DOTFILES" && ./install.sh $@
+  cd "$DOTFILES" && bash ./install.sh $@
   cd - >>/dev/null
 }
 

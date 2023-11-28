@@ -29,6 +29,10 @@ To Install everything automatically, run the install utility with `-a`:
 
 `./install.sh tmux` to install.
 
+## Vim and Neovim
+
+The config partially assumes you have installed Neovim (through a package manager), and `vim-plug` ([See installation](https://github.com/junegunn/vim-plug))
+
 ## ZSH
 
 #### Fzf

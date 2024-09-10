@@ -87,10 +87,15 @@ gpgconf --launch gpg-agent
 export FZF_DEFAULT_COMMAND="rg --files --follow --ignore-vcs -g '!{node_modules,venv}'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
 # ---------------------------------------------------------
 # Prompt
 # ---------------------------------------------------------
-
 source $DOTFILES/prompt.zsh
 
 
@@ -105,3 +110,7 @@ source $DOTFILES/aliases.zsh
 # ---------------------------------------------------------
 source $DOTFILES/functions.zsh
 
+# ---------------------------------------------------------
+# SSH Key Agent
+# ---------------------------------------------------------
+source $DOTFILES/ssh-agent.zsh

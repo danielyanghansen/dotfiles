@@ -49,6 +49,6 @@ alias dotfiles="cd $DOTFILES"
 
 #Webkom
 alias webkom="cd $WEBKOMCODE"
-alias legostart="cd $WEBKOMCODE/lego && docker-compose up -d && source venv/bin/activate && python manage.py runserver"
+alias legostart="cd $WEBKOMCODE/lego && docker compose up -d && source venv/bin/activate && python manage.py runserver"
 alias legomigrate="cd $WEBKOMCODE/lego && source venv/bin/activate && python manage.py migrate"
 

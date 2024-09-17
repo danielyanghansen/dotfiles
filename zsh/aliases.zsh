@@ -39,7 +39,7 @@ alias svim="sudoedit"
 
 # Utils
 alias dotinstall="bash $DOTFILES/install.sh"
-alias vimconfig="nvim $DOTFILES/init.vim && cp $DOTFILES/init.vim $HOME/.config/nvim/init.vim"
+alias nvimconfig="nvim $DOTFILES/init.vim && cp $DOTFILES/init.vim $HOME/.config/nvim/init.vim" # Edit vimrc and copy to nvim config
 
 
 #Other

@@ -1,9 +1,13 @@
 # Run tmux if exists
-if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
-  [ -z "${TMUX}" ] && exec tmux
-else
-  echo "tmux not installed on this system"
-fi
+run_tmux() {
+  if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ]; then
+    [ -z "${TMUX}" ] && exec tmux
+  else
+    echo "tmux not installed on this system"
+  fi
+}
+
+run_tmux # Seems to create issues with warp
 
 # ---------------------------------------------------------
 # Environment
@@ -13,6 +17,7 @@ source $DOTFILES/.local/zshrc-template
 # ---------------------------------------------------------
 # Plugins
 # ---------------------------------------------------------
+source $DOTFILES/zsh/plugins.zsh
 
 # Source FZF if installed
 # Manual
@@ -29,38 +34,6 @@ elif [ -r /etc/arch-release ]; then
 fi
 
 
-#Plugins
-source_plugin() {
-  local source_file="$1.plugin.zsh"
-  # Use second argument as filename if provided
-  if [[ ! -z $2 ]]; then
-    source_file=$2
-  fi
-  [[ -d $ZSH_PLUGINS/$1 ]] && source "$ZSH_PLUGINS/$1/$source_file"
-}
-
-# Place github path for plugins to be installed here.
-plugins=(
-  "zsh-users/zsh-autosuggestions"
-  "zsh-users/zsh-syntax-highlighting"
-  "zsh-users/zsh-completions"
-  "zsh-users/zsh-history-substring-search"
-)
-
-
-# Oh-my-zsh plugins to be installed, can be found in ~/.oh-my-zsh/plugins
-oh_my_zsh_plugins=(
-  "sudo"
-  "dotenv"
-  "git"
-)
-
-source_plugin zsh-autosuggestions
-source_plugin zsh-syntax-highlighting
-source_plugin zsh-completions
-source_plugin zsh-history-substring-search
-source_plugin sudo
-source_plugin dotenv
 
 
 # ---------------------------------------------------------
@@ -69,7 +42,7 @@ source_plugin dotenv
 
 export PATH="$HOME/.yarn/bin:$HOME/go/bin:/usr/local/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PASSWORD_STORE_DIR="/home/danielyh/code/webkomgit/password-store"
+export PASSWORD_STORE_DIR="$HOME/code/webkomgit/password-store"
 
 # ---------------------------------------------------------
 # Environment
@@ -96,21 +69,21 @@ eval "$(pyenv init -)"
 # ---------------------------------------------------------
 # Prompt
 # ---------------------------------------------------------
-source $DOTFILES/prompt.zsh
+source $DOTFILES/zsh/prompt.zsh
 
 
 # ---------------------------------------------------------
 # Aliases
 # ---------------------------------------------------------
-source $DOTFILES/aliases.zsh
+source $DOTFILES/zsh/aliases.zsh
 
 
 # ---------------------------------------------------------
 # Functions
 # ---------------------------------------------------------
-source $DOTFILES/functions.zsh
+source $DOTFILES/zsh/functions.zsh
 
 # ---------------------------------------------------------
 # SSH Key Agent
 # ---------------------------------------------------------
-source $DOTFILES/ssh-agent.zsh
+source $DOTFILES/zsh/agents.zsh

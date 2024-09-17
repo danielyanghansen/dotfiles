@@ -1,3 +1,4 @@
+" Keep in mind: This is only for Neovim, just because I didn't figure out vim-plug in native vim
 :set number                     " Line number
 :set relativenumber             " Line relative numbers
 :set autoindent                 " Autoindent

@@ -63,8 +63,13 @@ backup_file() {
 
     local filename
     filename=$(basename "$1")
-
-    cp "$1" "$DOTFILES/.local/backup/$filename"
+    
+    # Use sudo for copying if needed
+    if [[ ! -w "$DOTFILES/.local/backup/$filename" ]]; then
+      sudo cp "$1" "$DOTFILES/.local/backup/$filename"
+    else
+      cp "$1" "$DOTFILES/.local/backup/$filename"
+    fi
 
     echo "Created a backup of '$1' in: $DOTFILES/.local/backup/$filename"
 

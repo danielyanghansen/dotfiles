@@ -57,8 +57,11 @@ gpgconf --launch gpg-agent
 
 # use ripgrep for fzf
 # Respect gitignores and always ignore module directories
-export FZF_DEFAULT_COMMAND="rg --files --follow --ignore-vcs -g '!{node_modules,venv}'"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+     export FZF_DEFAULT_COMMAND="rg --files --follow --ignore-vcs -g '!{node_modules,venv}'"
+     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Override Ctrl+T behavior to use fzf_with_preview
+export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --style=numbers --line-range=:500 {}'"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"

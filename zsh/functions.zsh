@@ -1,9 +1,9 @@
 # dots
 # Run the dotfiles script from anywhere
-dots() {
-  cd "$DOTFILES" && bash ./install.sh $@
-  cd - >>/dev/null
-}
+  dots() {
+    cd "$DOTFILES" && bash ./install.sh $@
+    cd - >>/dev/null
+  }
 
 
 # Read MarkDown
@@ -42,13 +42,13 @@ ghc() {
   local jq_template pr_number
 
   jq_template='"'\
-'#\(.number) - \(.title)'\
-'\t'\
-'Author: \(.user.login)\n'\
-'Created: \(.created_at)\n'\
-'Updated: \(.updated_at)\n\n'\
-'\(.body)'\
-'"'
+  '#\(.number) - \(.title)'\
+  '\t'\
+  'Author: \(.user.login)\n'\
+  'Created: \(.created_at)\n'\
+  'Updated: \(.updated_at)\n\n'\
+  '\(.body)'\
+  '"'
 
   if [ -n "$1" ]; then
     pr_number="$1"
@@ -93,3 +93,13 @@ s() {
   fi
 }
 
+
+# FZF - Currently unused
+function fzf_with_preview() {
+    local FZF_PREVIEW_COMMAND='
+        if [[ ! -e {} ]]; then echo "File does not exist."; return; fi; 
+        if [[ ! -s {} ]]; then echo "File is empty :/"; return; fi; 
+        batcat --color=always --style=numbers --line-range=:500 {}'
+    fzf --preview="$FZF_PREVIEW_COMMAND" "$@"
+}
+# !!!Requires batcat

@@ -3,13 +3,14 @@
 </p>
 
 **Dotfiles used on (currently) Debian Linux for the following:**
+
 - [Vim](http://vim.org)
 - [zsh](http://zsh.sourceforge.net)
 - [tmux](https://github.com/tmux/tmux)
 
 ## Installation
 
-> Make sure to install Nerdfonts: https://github.com/ryanoasis/nerd-fonts
+> Make sure to install Nerdfonts: <https://github.com/ryanoasis/nerd-fonts>
 
 The configration uses an install utility, run the utility to see what can be auto-installed.
 
@@ -17,7 +18,6 @@ The configration uses an install utility, run the utility to see what can be aut
 chmod +x install.sh
 ./install.sh
 ```
-
 
 To Install everything automatically, run the install utility with `-a`:
 
@@ -35,7 +35,7 @@ The config partially assumes you have installed Neovim (through a package manage
 
 ## ZSH
 
-#### Fzf
+### Fzf
 
 - Both zsh and vim configration uses fzf.
 - Note: fzf commands in zsh uses ripgrep instead of grep for optimal performance.
@@ -48,7 +48,7 @@ The config partially assumes you have installed Neovim (through a package manage
 ./install.sh cli-tools -n ripgrep
 ```
 
-#### Installation
+### ZSH Installation
 
 Install with the provided utility with `zsh` as argument:
 
@@ -58,7 +58,7 @@ Install with the provided utility with `zsh` as argument:
 ./install.sh zsh
 ```
 
-#### Updating
+### Updating ZSH
 
 To update zsh plugins, run:
 
@@ -71,7 +71,6 @@ dots zsh-update # From anywhere
 This will also install any new plugins defined in `zshrc`
 
 > Currently does not support updates from oh-my-zsh plugins
-
 
 ## Gnome configuration
 

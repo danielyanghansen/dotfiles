@@ -47,7 +47,7 @@ declare -A cli_tools=(
 
   ["zsh"]="zsh"
   ["vim"]="vim"
-  # ["neovim"]="nvim"
+  ["neovim"]="nvim"
   ["fzf"]="fzf"
   ["subversion"]="svn"
   ["git"]="git"
@@ -55,6 +55,7 @@ declare -A cli_tools=(
   ["tmux"]="tmux"
   ["gawk"]="awk"
   ["autojump"]="autojump"
+  ["batcat"]="batcat"
   #TODO add command for installing GUI and distro-specific programs
 
 )

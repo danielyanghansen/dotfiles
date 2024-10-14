@@ -11,6 +11,18 @@ backup_file "$HOME/.tmux.conf"
 echo "source $DOTFILES/tmux.conf" >"$HOME/.tmux.conf"
 
 echo "Installing tmux plugin manager"
-git clone git@github.com:tmux-plugins/tpm.git ~/.tmux/plugins/tpm
+
+# Define TPM path
+TPM_DIR="$HOME/.tmux/plugins/tpm"
+
+# Check if TPM is already installed
+if [ -d "$TPM_DIR" ]; then
+    echo "TPM is already installed. Pulling the latest updates..."
+    # Navigate to TPM directory and pull the latest changes
+    git -C "$TPM_DIR" pull
+else
+    echo "TPM is not installed. Cloning TPM..."
+    git clone git@github.com:tmux-plugins/tpm.git "$TPM_DIR"
+fi
 
 echo -e "\nInstalling tmux - DONE\n"

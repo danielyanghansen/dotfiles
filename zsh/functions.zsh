@@ -103,3 +103,24 @@ function fzf_with_preview() {
     fzf --preview="$FZF_PREVIEW_COMMAND" "$@"
 }
 # !!!Requires batcat
+
+function slowwrite() {
+  # Check if input is provided
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: slowwrite <string>"
+    return 1
+  fi
+
+  local string="$*"
+  local delay=0.05  # Delay in seconds between each character
+
+  # Loop through each character in the string
+  for (( i = 1; i <= ${#string}; i++ )); do
+    printf "\r%s" "${string:0:${i}}"  # Print the substring up to the current index
+    sleep $delay
+  done
+
+  # Print a newline at the end to finalize the display
+  echo
+}
+

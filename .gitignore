@@ -1,2 +1,4 @@
 zsh_plugins
 .local
+.env
+.env.local

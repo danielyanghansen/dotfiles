@@ -2,8 +2,8 @@
 
 # shellcheck source=utils.sh
 source "$DOTFILES/install/utils.sh"
-# shellcheck source=../zshrc
-source "$DOTFILES/zshrc"
+# shellcheck source=../zsh/plugins.config.zsh
+source "$DOTFILES/zsh/plugins.config.zsh"
 
 echo "Cloning and setting up dependencies"
 

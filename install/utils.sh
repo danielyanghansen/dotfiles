@@ -85,7 +85,7 @@ check_install() {
     echo -e "\e[0m Do you wish to install it? [Y/n].\c"
     read -r option
     if [[ "$option" == "" || "$option" == "y" ]]; then
-      "$DOTFILES/install/cli_tools.sh" -n "$1"
+      "$DOTFILES/install/cli-tools.sh" -n "$1"
     else
       if [[ $2 == "-e" ]]; then
         exit 1

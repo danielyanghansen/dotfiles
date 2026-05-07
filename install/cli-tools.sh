@@ -133,18 +133,18 @@ while [[ $# -gt 0 ]]; do
     ;;
   -h | --help)
     print_help
-    exit 1
+    exit 0
     ;;
   -l | --list)
     print_all
-    exit 1
+    exit 0
     ;;
   --list-managers)
     printf "Supported package managers:\n"
     for i in "${!installers[@]}"; do
       printf "\t%s\n" "$i"
     done
-    exit 1
+    exit 0
     ;;
   *)
     shift

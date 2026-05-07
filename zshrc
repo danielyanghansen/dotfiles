@@ -7,17 +7,20 @@ run_tmux() {
   fi
 }
 
-run_tmux # Seems to create issues with warp
+if [[ "${DOTFILES_DISABLE_AUTO_TMUX:-0}" != "1" ]]; then
+  run_tmux
+fi
 
 # ---------------------------------------------------------
 # Environment
 # ---------------------------------------------------------
-source $DOTFILES/.env
-source $DOTFILES/.local/zshrc-template
+[[ -f "$DOTFILES/.env" ]] && source "$DOTFILES/.env"
+[[ -f "$DOTFILES/.env.local" ]] && source "$DOTFILES/.env.local"
+[[ -f "$DOTFILES/.local/zshrc-template" ]] && source "$DOTFILES/.local/zshrc-template"
 # ---------------------------------------------------------
 # Plugins
 # ---------------------------------------------------------
-source $DOTFILES/zsh/plugins.zsh
+source "$DOTFILES/zsh/plugins.zsh"
 
 # Source FZF if installed
 # Manual
@@ -44,7 +47,7 @@ export PATH="$HOME/.yarn/bin:$HOME/go/bin:/usr/local/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/NVIDIA-Nsight-Compute:$PATH"
 
-export PASSWORD_STORE_DIR="$HOME/code/webkomgit/password-store"
+export PASSWORD_STORE_DIR="${PASSWORD_STORE_DIR:-$HOME/code/webkomgit/password-store}"
 
 # ---------------------------------------------------------
 # Environment
@@ -61,8 +64,8 @@ gpgconf --launch gpg-agent
 
 # use ripgrep for fzf
 # Respect gitignores and always ignore module directories
-     export FZF_DEFAULT_COMMAND="rg --files --follow --ignore-vcs -g '!{node_modules,venv}'"
-     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_COMMAND="rg --files --follow --ignore-vcs -g '!{node_modules,venv}'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Override Ctrl+T behavior to use fzf_with_preview
 export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --style=numbers --line-range=:500 {}'"
@@ -70,27 +73,29 @@ export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --style=numbers --line-
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if command -v pyenv >/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 
 # ---------------------------------------------------------
 # Prompt
 # ---------------------------------------------------------
-source $DOTFILES/zsh/prompt.zsh
+source "$DOTFILES/zsh/prompt.zsh"
 
 
 # ---------------------------------------------------------
 # Aliases
 # ---------------------------------------------------------
-source $DOTFILES/zsh/aliases.zsh
+source "$DOTFILES/zsh/aliases.zsh"
 
 
 # ---------------------------------------------------------
 # Functions
 # ---------------------------------------------------------
-source $DOTFILES/zsh/functions.zsh
+source "$DOTFILES/zsh/functions.zsh"
 
 # ---------------------------------------------------------
 # SSH Key Agent
 # ---------------------------------------------------------
-source $DOTFILES/zsh/agents.zsh
+source "$DOTFILES/zsh/agents.zsh"

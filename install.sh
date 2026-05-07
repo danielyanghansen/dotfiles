@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Set dotfiles directory
 DOTFILES="$(pwd)"
 

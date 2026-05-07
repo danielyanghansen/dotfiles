@@ -6,7 +6,7 @@ source "$DOTFILES/install/utils.sh"
 check_install zsh -e
 
 echo "Changing login shell to zsh..."
-chsh $USER -s "$(which zsh)"
+chsh "$USER" -s "$(command -v zsh)"
 
 # Set zsh plugin directory
 ZSH_PLUGINS=$DOTFILES/.local/zsh_plugins

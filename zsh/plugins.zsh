@@ -30,3 +30,4 @@ source_plugin zsh-completions
 source_plugin zsh-history-substring-search
 source_plugin sudo
 source_plugin dotenv
+source_plugin git

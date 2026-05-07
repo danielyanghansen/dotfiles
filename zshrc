@@ -42,11 +42,15 @@ fi
 
 export PATH="$HOME/.yarn/bin:$HOME/go/bin:/usr/local/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/NVIDIA-Nsight-Compute:$PATH"
+
 export PASSWORD_STORE_DIR="$HOME/code/webkomgit/password-store"
 
 # ---------------------------------------------------------
 # Environment
 # ---------------------------------------------------------
+export XDG_CONFIG_HOME="$HOME/.config"
+
 export EDITOR='/usr/bin/nvim'
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 

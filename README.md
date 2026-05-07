@@ -1,82 +1,37 @@
-<p align="center">
-  <h1 align="center" style="text-decoration: underline;">danielyanghansen dotfiles</h1>
-</p>
+# danielyanghansen dotfiles
 
-**Dotfiles used on (currently) Debian Linux for the following:**
+Personal dotfiles for zsh, tmux, Vim, and Neovim on Linux.
 
-- [Vim](http://vim.org)
-- [zsh](http://zsh.sourceforge.net)
-- [tmux](https://github.com/tmux/tmux)
+Start with the manual:
 
-## Installation
+- [Overview](docs/index.md)
+- [Repo structure](docs/structure.md)
+- [Installation](docs/install.md)
+- [Zsh](docs/zsh.md)
+- [Tmux](docs/tmux.md)
+- [Vim and Neovim](docs/vim.md)
+- [Maintenance](docs/maintenance.md)
 
-> Make sure to install Nerdfonts: <https://github.com/ryanoasis/nerd-fonts>
-
-The configration uses an install utility, run the utility to see what can be auto-installed.
+## Quick Start
 
 ```sh
 chmod +x install.sh
 ./install.sh
 ```
 
-To Install everything automatically, run the install utility with `-a`:
+Install everything the installer knows about:
 
 ```sh
 ./install.sh -a
 ```
 
-## Tmux
-
-`./install.sh tmux` to install.
-
-## Vim and Neovim
-
-The config partially assumes you have installed Neovim (through a package manager), and `vim-plug` ([See installation](https://github.com/junegunn/vim-plug))
-
-## ZSH
-
-### Fzf
-
-- Both zsh and vim configration uses fzf.
-- Note: fzf commands in zsh uses ripgrep instead of grep for optimal performance.
-  use the utility to install it as well.
-
-- Installation
-
-```sh
-./install.sh cli-tools -n fzf
-./install.sh cli-tools -n ripgrep
-```
-
-### ZSH Installation
-
-Install with the provided utility with `zsh` as argument:
-
-> This only installs the configuration
+Install one area:
 
 ```sh
 ./install.sh zsh
+./install.sh tmux
+./install.sh neovim
 ```
 
-### Updating ZSH
-
-To update zsh plugins, run:
-
-```sh
-./install.sh zsh-update # in dotfiles folder
-# Or
-dots zsh-update # From anywhere
-```
-
-This will also install any new plugins defined in `zshrc`
-
-> Currently does not support updates from oh-my-zsh plugins
-
-## Gnome configuration
-
-Make sure to have gnome-tweaks installed and run:
-
-```sh
-cd ~
-dconf load / < dotfiles/ubuntu/saved_settings.dconf
-```
+Machine-specific environment values belong in `.env.local`. Use
+[.env.example](.env.example) as the template.

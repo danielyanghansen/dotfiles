@@ -124,3 +124,16 @@ function slowwrite() {
   echo
 }
 
+function cpp_format_dir() {
+  # Check if the directory is provided
+  if [[ $# -eq 0 ]]; then
+    echo "Usage: cpp_format_dir <directory>"
+    return 1
+  fi
+
+  local dir="$1"
+
+  # Find all .cpp and .h files in the directory and format them using clang-format
+  find "$dir" -type f \( -name "*.cpp" -o -name "*.hpp" -o -name "*.h" \) -exec clang-format -i {} +
+}
+

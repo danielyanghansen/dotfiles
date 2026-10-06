@@ -40,7 +40,8 @@ declare -A updaters=(
 
 )
 
-# Declare a table of tools that should be installed
+# CLI tools to install. Keys are package names; values are commands to check.
+# Keep cli_tool_order in the same order so --list and --all are predictable.
 declare -A cli_tools=(
 
   #["program"]="command"
@@ -52,19 +53,22 @@ declare -A cli_tools=(
   ["subversion"]="svn"
   ["git"]="git"
   ["ripgrep"]="rg"
+  ["shellcheck"]="shellcheck"
   ["tmux"]="tmux"
   ["gawk"]="awk"
   ["autojump"]="autojump"
+  ["zoxide"]="zoxide"
   ["batcat"]="batcat"
-  #TODO add command for installing GUI and distro-specific programs
+  # TODO add command for installing GUI and distro-specific programs
 
 )
+cli_tool_order=(zsh vim neovim fzf subversion git ripgrep shellcheck tmux gawk autojump zoxide batcat)
 
 # Function to print keys from an associative array
 print_all() {
 
   printf "Cli-tools to be installed:\n"
-  for i in "${!cli_tools[@]}"; do
+  for i in "${cli_tool_order[@]}"; do
     printf "\t%s\n" "$i"
   done
 
@@ -159,7 +163,7 @@ if [[ -n $cli_tool ]]; then
 elif [[ $install_all ]]; then
   # Update package manager before installing
   eval "${updaters["$manager"]}"
-  for prog in "${!cli_tools[@]}"; do
+  for prog in "${cli_tool_order[@]}"; do
     install_program "$prog"
   done
 else

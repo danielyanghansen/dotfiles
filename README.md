@@ -33,5 +33,11 @@ Install one area:
 ./install.sh neovim
 ```
 
+Run the safe checks:
+
+```sh
+bash test/check.sh
+```
+
 Machine-specific environment values belong in `.env.local`. Use
 [.env.example](.env.example) as the template.

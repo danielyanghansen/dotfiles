@@ -61,15 +61,27 @@ When files move, update `docs/structure.md`.
 
 ## Sanity Checks
 
+Run the maintained check script:
+
+```sh
+bash test/check.sh
+git status --short
+```
+
+What it covers:
+
+- `shellcheck` for bash scripts, when ShellCheck is installed.
+- `bash -n` for bash syntax.
+- `zsh -n` for zsh syntax, when zsh is installed.
+- Installer help/list commands that should not change the machine.
+
+The equivalent manual commands are:
+
 ```sh
 shellcheck -e SC1091 install.sh install/cli-tools.sh install/neovim.sh install/tmux.sh install/utils.sh install/vim.sh install/zsh.sh spotify_info.sh
 ./install.sh
 ./install.sh cli-tools --list
 ./install.sh cli-tools --list-managers
-git status --short
 ```
-
-ShellCheck does not support zsh scripts, so review `install/zsh_plugins.sh`,
-`install/zsh_update.sh`, and files under `zsh/` manually.
 
 Update this page when a repeated maintenance task appears more than once.

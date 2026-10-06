@@ -17,7 +17,7 @@ flowchart TD
 
 ## Files
 
-- `zshrc`: startup order, PATH, editor, fzf, pyenv, and module sourcing.
+- `zshrc`: startup order, PATH, editor, fzf, pyenv, optional zoxide, and module sourcing.
 - `zsh/plugins.config.zsh`: plugin lists used by installers and startup.
 - `zsh/plugins.zsh`: sources plugins already present in `.local/zsh_plugins/`.
 - `zsh/aliases.zsh`: command shortcuts.
@@ -53,6 +53,17 @@ template. Keep personal paths out of tracked config unless they are intentionall
 part of this repo.
 
 Aliases under the Webkom section expect `WEBKOMCODE` to be set in `.env.local`.
+
+`lsa` is a function, not a plain alias: it uses `eza` when available, then `lsd`,
+then normal `ls -la`. This keeps directory listing usable on stock Ubuntu 22.04.
+
+Optional jump helper:
+
+```sh
+./install.sh cli-tools -n zoxide
+```
+
+Then restart zsh and use `z partial-directory-name`.
 
 Set this to avoid automatic tmux startup:
 

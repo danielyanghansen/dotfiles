@@ -70,11 +70,17 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Override Ctrl+T behavior to use fzf_with_preview
 export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --style=numbers --line-range=:500 {}'"
 
-# pyenv
+# pyenv: optional Python version manager. Safe to leave installed per-machine.
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init -)"
+fi
+
+# zoxide: smarter `cd` history. Installed by `./install.sh cli-tools -n zoxide`.
+# Use `z foo` to jump to a frequently used directory matching "foo".
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
 fi
 
 

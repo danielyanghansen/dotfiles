@@ -9,6 +9,7 @@ flowchart TD
   root --> top["top-level configs"]
   root --> zsh["zsh/ modules"]
   root --> notes["notes/ manual install notes"]
+  root --> tests["test/ repo checks"]
   root --> local[".local/ generated state"]
 
   top --> zshrc["zshrc"]
@@ -38,6 +39,7 @@ flowchart TD
 - `zsh/plugins.zsh` sources already-installed plugins during shell startup.
 - `tmux.conf`, `vimrc`, and `init.vim` are the tool configs.
 - `.gitconfig` is the tracked Git config for this dotfiles setup.
+- `test/check.sh` runs the safe repo sanity checks.
 - `docs/` explains the repo and should change when behavior changes.
 
 ## Generated Or Local Files

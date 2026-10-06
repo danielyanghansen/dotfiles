@@ -1,14 +1,29 @@
-# dots
-# Run the dotfiles script from anywhere
-  dots() {
-    cd "$DOTFILES" && bash ./install.sh $@
-    cd - >>/dev/null
-  }
+# Run the dotfiles installer from any directory, then return here.
+dots() {
+  local current_dir="$PWD"
+  cd "$DOTFILES" || return
+  bash ./install.sh "$@"
+  cd "$current_dir" || return
+}
 
+# Long listing with the nicest installed tool available.
+# Ubuntu 22.04 may have neither lsd nor eza, so plain ls is the fallback.
+# Existing shells may still have the old `alias lsa=...`; remove it before
+# defining the replacement function.
+unalias lsa 2>/dev/null
+lsa() {
+  if command -v eza >/dev/null 2>&1; then
+    eza -la --icons=auto "$@"
+  elif command -v lsd >/dev/null 2>&1; then
+    lsd -la "$@"
+  else
+    command ls -la "$@"
+  fi
+}
 
-# Read MarkDown
+# Read Markdown in the terminal.
 rmd() {
-  pandoc $1 | lynx -stdin
+  pandoc "$1" | lynx -stdin
 }
 
 # Search and install from apt with fzf

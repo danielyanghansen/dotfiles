@@ -1,9 +1,11 @@
 # Installation
 
-Run the installer from the repo root:
+Run the installer from the repo root, or by absolute path from anywhere:
 
 ```sh
 ./install.sh
+# or
+~/dotfiles/install.sh
 ```
 
 Install everything:
